@@ -5,10 +5,10 @@ ENV PATH=/opt/venv/bin:$PATH
 
 WORKDIR /app
 
-COPY requirements.txt /tmp/requirements.txt
+COPY backend/requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt
 
-COPY ./src ./src
+COPY backend/src ./src
 
 EXPOSE 8000
 
