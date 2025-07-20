@@ -58,15 +58,13 @@ curl "https://hrone-production.up.railway.app/api/products/?name=T-Shirt"
 # Filter by size
 curl "https://hrone-production.up.railway.app/api/products/?size=M"
 
-# Pagination using offset (traditional)
+# Pagination using offset
 curl "https://hrone-production.up.railway.app/api/products/?limit=5&offset=0"
-
-# Pagination using page numbers (easier)
-curl "https://hrone-production.up.railway.app/api/products/?limit=5&page=1"
-curl "https://hrone-production.up.railway.app/api/products/?limit=5&page=2"
+curl "https://hrone-production.up.railway.app/api/products/?limit=5&offset=5"
+curl "https://hrone-production.up.railway.app/api/products/?limit=5&offset=10"
 
 # Combined filters with pagination
-curl "https://hrone-production.up.railway.app/api/products/?name=T-Shirt&size=M&limit=10&page=1"
+curl "https://hrone-production.up.railway.app/api/products/?name=T-Shirt&size=M&limit=10&offset=0"
 ```
 
 Response:
@@ -132,12 +130,9 @@ curl "https://hrone-production.up.railway.app/api/orders/"
 **Get Orders with Pagination:**
 
 ```bash
-# Using offset
 curl "https://hrone-production.up.railway.app/api/orders/?limit=5&offset=0"
-
-# Using page numbers
-curl "https://hrone-production.up.railway.app/api/orders/?limit=5&page=1"
-curl "https://hrone-production.up.railway.app/api/orders/?limit=5&page=2"
+curl "https://hrone-production.up.railway.app/api/orders/?limit=5&offset=5"
+curl "https://hrone-production.up.railway.app/api/orders/?limit=5&offset=10"
 ```
 
 Response:
@@ -203,12 +198,6 @@ Response:
 ### Orders
 - `limit`: Number of results to return (default: 10)
 - `offset`: Number of results to skip for pagination (default: 0)
-- `page`: Page number (alternative to offset, starts from 1)
-
-### Pagination Options
-You can use either:
-1. **Offset-based**: `?limit=10&offset=20` (traditional)
-2. **Page-based**: `?limit=10&page=3` (easier, automatically calculates offset)
 
 ## Important Notes
 
