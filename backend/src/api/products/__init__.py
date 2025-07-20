@@ -1,0 +1,1 @@
+# src/api/products/__init__.py
