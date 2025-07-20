@@ -8,7 +8,7 @@ client = AsyncIOMotorClient(os.getenv("MONGODB_URL"))
 
 app = FastAPI()
 
-app.state.database = client.hrone_database
+app.state.database = client["hrone_database"]
 
 @app.on_event("startup")
 async def startup_event():
