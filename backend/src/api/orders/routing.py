@@ -7,7 +7,7 @@ router = APIRouter()
 @router.post("/", status_code=201)
 async def create_order(order: OrderCreate, request: Request):
     db = request.app.state.database
-    result = await db.orders.insert_one(order.dict())
+    result = await db.orders.insert_one(order.model_dump())
     return {"id": str(result.inserted_id)}
 
 @router.get("/", status_code=200)

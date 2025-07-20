@@ -7,7 +7,7 @@ router = APIRouter()
 @router.post("/", status_code=201)
 async def create_product(product: ProductCreate, request: Request):
     db = request.app.state.database
-    result = await db.products.insert_one(product.dict())
+    result = await db.products.insert_one(product.model_dump())
     return {"id": str(result.inserted_id)}
 
 @router.get("/", status_code=200)
